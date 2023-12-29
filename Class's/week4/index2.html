@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week-4 with backend and timeout automatically</title>
+</head>
+    <script>
+        function onInputChange(){
+        const timeout = 0;
+            clearTimeout(timeout);
+            setTimeout(function(){
+                calculateSum();
+            },1000)
+        }
+        async function calculateSum(){
+            const num1 = document.getElementById("firstnumber").value;
+            const num2 = document.getElementById("secondnumber").value;
+            
+            // sum = parseInt(num1) + parseInt(num2);
+
+            // const ele = document.getElementById("finalsum")
+            // ele.innerHTML = sum; // or by adding the parseInt(num1) + parseInt(num2);
+            const res = await fetch(`https://sum-server.100xdevs.com/sum?a=${num1}&b=${num2}`)
+            const total = await res.text()
+            document.getElementById("finalsum").innerHTML = total;
+        }
+    </script>
+<body>
+    <input oninput="onInputChange()" type="text" placeholder="first number" id="firstnumber"> <br><br>
+    <input oninput="onInputChange()" type="text" placeholder="second number" id="secondnumber"> <br><br>
+    <h1 id="finalsum"></h1>
+</body>
+</html>
