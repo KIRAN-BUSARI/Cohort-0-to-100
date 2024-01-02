@@ -5,20 +5,40 @@ mongoose.connect('mongodb+srv://kiranbusari2208:2dioeeShcYzLv1KY@cluster0.whdq8z
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
-    username: String,
-    password: String
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 });
 
 const UserSchema = new mongoose.Schema({
-    username: String,
-    password: String
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 });
 
 const CourseSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    price: Number,
-    image: String
+    title: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
+    price: {
+        type: Number
+    },
+    image: {
+        type: String,
+    }
 });
 
 const Admin = mongoose.model('Admin', AdminSchema);
