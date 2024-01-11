@@ -16,7 +16,7 @@ setInterval(() => {
 }, 1000)
 
 
-app.use(function(req, res, next) {
+app.use(function rateLimitter(req, res, next) {
   const userId = req.headers["user-id"];
   if (numberOfRequestsForUser[userId]) {
     numberOfRequestsForUser[userId] += 1;
