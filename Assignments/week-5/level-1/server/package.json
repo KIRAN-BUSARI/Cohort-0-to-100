@@ -1,0 +1,20 @@
+{
+  "name": "e-business",
+  "version": "1.0.0",
+  "description": "This is simple e-business card",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Busari Kiran Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2"
+  }
+}

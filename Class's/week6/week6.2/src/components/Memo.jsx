@@ -1,30 +1,33 @@
-import { useState } from "react";
+import { useMemo, useState, React } from 'react';
 
 function Memo() {
     const [counter, setCounter] = useState(0);
-    const [inputValue, setInputValue] = useState(1);
+    const [inputValue, setInputValue] = useState(0)
 
-    // useEffect(() => {
-    //     let sum = 0;
-    //     for (let i = 0; i < inputValue; i++) {
-    //         sum = sum + i;
-    //     }
-    // },[inputValue])
-    
-    let sum = 0;
-    for (let i = 0; i <= inputValue; i++) {
-        sum = sum + i;
-    }
+    let count = useMemo(() => {
+        let sum = 0
+        for (let i = 1; i <= inputValue; i++) {
+            sum = sum + i;
+        }
+        return sum;
+    }, [inputValue])
 
     return (
         <div>
-            <input onChange={function (e) {
+            {/* <Memo /> */}
+            {/* <Todo id={count} /> */}
+            <input type="number" onChange={function (e) {
                 setInputValue(e.target.value)
-            }} type="number" />
-            <h2>The sum is : {sum}</h2>
-            <button onClick={setCounter(counter + 1)}>Counter({counter})</button>
+            }} placeholder='Enter number' />
+            <br />
+            <h2>The sum from 1 to {inputValue} is {count}</h2>
+            <div>
+                <button onClick={() => {
+                    setCounter(counter + 1);
+                }}>Count : {counter}</button>
+            </div>
         </div>
     )
 }
 
-export default Memo;
+export default Memo
