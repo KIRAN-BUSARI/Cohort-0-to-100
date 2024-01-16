@@ -28,16 +28,15 @@ export const createCardController = async (req, res) => {
     res.status(201).json({
         success: true,
         message: "Card created successfully",
-        card: card
     })
 }
 
 export const getCardController = async (req, res) => {
-    const cards = await Card.find();
+    const cards = await Card.find({});
 
     res.status(201).json({
         success: true,
         message: "Cards fetched successfully",
-        cards: cards
+        cards
     })
 }
