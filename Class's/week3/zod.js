@@ -18,7 +18,7 @@ usercheck({
     userName: "kiran kumar",
     email: "kiran@gmail.com",
     password: "123456789"
-}); 
+});
 
 // app.use(express.json());
 
