@@ -1,4 +1,4 @@
-import { useEffect, useState, React } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Todo({ id }) {
@@ -10,6 +10,7 @@ function Todo({ id }) {
                 setTodos(res.data.todo)
             })
     }, [id])
+    
 
     return (
         <>
@@ -22,21 +23,4 @@ function Todo({ id }) {
         </>
     )
 }
-
-function TodoFetch() {
-    const [ids, setIds] = useState(1);
-    return (
-        <div>
-            <Todo id={ids} />
-            <br />
-            <div>
-                <button onClick={() => { setIds(1) }}>1</button>
-                <button onClick={() => { setIds(2) }}>2</button>
-                <button onClick={() => { setIds(3) }}>3</button>
-                <button onClick={() => { setIds(4) }}>4</button>
-            </div>
-        </div>
-    )
-}
-
-export default TodoFetch;
+export default Todo;
